@@ -11,6 +11,6 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=crm.docker_settings
     ports:
-      - "8000:8000"
+      - "8000"
     depends_on:
       - db
