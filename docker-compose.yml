@@ -10,6 +10,8 @@ services:
     image: micropyramid/django-crm:1
     environment:
       - DJANGO_SETTINGS_MODULE=crm.docker_settings
+      - SG_USER="${SG_USER}"
+      - SG_PWD="${SG_PWD}"
     ports:
       - "8000"
     depends_on:
