@@ -13,6 +13,6 @@ services:
       - SG_USER=${SG_USER}
       - SG_PWD=${SG_PWD}
     ports:
-      - "8000"
+      - "8100:8000"
     depends_on:
       - db
