@@ -68,9 +68,11 @@ class CreateLeadView(LoginRequiredMixin, CreateView):
         return kwargs
 
     def post(self, request, *args, **kwargs):
+        
         self.object = None
         form = self.get_form()
         address_form = BillingAddressForm(request.POST)
+
         if form.is_valid() and address_form.is_valid():
             return self.form_valid(form, address_form)
         else:

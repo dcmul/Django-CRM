@@ -149,6 +149,7 @@ class CreateUserView(AdminRequiredMixin, CreateView):
     template_name = "create.html"
 
     def form_valid(self, form):
+        print('\n=\nhere1\n=\n')
         user = form.save(commit=False)
         if form.cleaned_data.get("password"):
             user.set_password(form.cleaned_data.get("password"))
@@ -160,6 +161,8 @@ class CreateUserView(AdminRequiredMixin, CreateView):
 
 
     def form_invalid(self, form):
+        print('\n=\nhere2\n=\n')
+        print(form.errors)
         response = super(CreateUserView, self).form_invalid(form)
         if self.request.is_ajax():
             return JsonResponse({'error': True, 'errors': form.errors})

@@ -2,12 +2,14 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)))
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'mwx@&97%!$fx_*zgj(2ygi^(s=oh5j(cqb$=+-mkd9scbt!0v0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -71,12 +73,13 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dj_crm',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'crm',
+        'USER': 'crm',
+        'PASSWORD': 'crm',
+        'HOST': 'localhost',
+        'PORT': '',
+
     }
 }
 
@@ -159,7 +162,8 @@ COMPRESS_ENABLED = True
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
     ('text/x-sass', 'sass {infile} {outfile}'),
-    ('text/x-scss', 'sass --scss {infile} {outfile}'),
+    ('text/x-scss', 'sassc {infile} {outfile}'),
+    # ('text/x-scss', 'sass --scss {infile} {outfile}'),
 )
 
 COMPRESS_OFFLINE_CONTEXT = {
@@ -188,3 +192,5 @@ try:
     from .dev_settings import *
 except ImportError:
     pass
+
+STATIC_ROOT = os.path.join(PROJECT_DIR, '../sitestatic')

@@ -17,5 +17,5 @@ urlpatterns = [
     path('logout/', views.LogoutView, {'next_page': '/login/'}, name="logout"),
 ]
 
-handler404 = handler404
-handler500 = handler500
+# handler404 = handler404
+# handler500 = handler500
