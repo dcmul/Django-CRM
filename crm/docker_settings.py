@@ -128,8 +128,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', )
 
 
-EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.getenv('SG_USER', '')
+DEFAULT_FROM_EMAIL = 'SPIDD Message Hub<hosting@spiddafrica.com>'
 EMAIL_HOST_PASSWORD = os.getenv('SG_PWD', '')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
